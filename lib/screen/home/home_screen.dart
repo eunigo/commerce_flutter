@@ -1,4 +1,5 @@
 import 'package:commerce_20250828/screen/home/home_widgets.dart';
+import 'package:commerce_20250828/screen/model/product_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../asset_path.dart';
@@ -16,6 +17,49 @@ class _HomeScreenState extends State<HomeScreen> {
     AssetPath.cloth2,
     AssetPath.cloth3,
     AssetPath.cloth4,
+  ];
+
+  List<ProductModel> newProductList = [
+    ProductModel(
+      AssetPath.productJacketJean,
+      "청자켓",
+      90000,
+      31,
+      4.3,
+      false
+    ),
+    ProductModel(
+        AssetPath.productManJacket,
+        "남자자켓",
+        90000,
+        31,
+        4.3,
+        false
+    ),
+    ProductModel(
+        AssetPath.productManStreet,
+        "길거리패션",
+        90000,
+        31,
+        4.3,
+        false
+    ),
+    ProductModel(
+        AssetPath.productManSuit,
+        "수트",
+        90000,
+        31,
+        4.3,
+        false
+    ),
+    ProductModel(
+        AssetPath.productBag,
+        "패션",
+        90000,
+        31,
+        4.3,
+        false
+    ),
   ];
 
   int currentIndex = 0;
@@ -74,6 +118,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
           SizedBox(height: 24,),
           HomeWidgets.subTitle("신제품"),
+          HomeWidgets.productHorizontal(newProductList),
+
+          /// 이벤트 항목 추가
+          /// subTitle 위젯 사용
+          /// Image.asset 웨젯 사용
+          /// AssetPath event 사용
+          SizedBox(height: 24,),
+          HomeWidgets.subTitle("이벤트"),
+          SizedBox(
+              height: 200,
+              width: double.infinity,
+              child: Image.asset(AssetPath.event, fit: BoxFit.cover)),
 
         ],
       ),

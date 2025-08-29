@@ -1,4 +1,4 @@
-import 'package:commerce_20250828/screen/home/product_model.dart';
+import 'package:commerce_20250828/screen/model/product_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +28,7 @@ class HomeWidgets {
     }),
     );
   }
-  
+
   static Widget subTitle(String title){
     return Row(
       children: [
@@ -39,18 +39,32 @@ class HomeWidgets {
   }
 
   static Widget productHorizontal(List<ProductModel> dataList){
-    return ListView.builder(
-      itemCount: dataList.length,
-      itemBuilder: (context, index) {
-        var productModel = dataList[index];
-      return SizedBox(
-        width: 150,
-        child: Column(children: [
-          Image.asset(productModel.image, height: 150,width: double.infinity,)
+    return SizedBox(
+      height: 300,
+      child: ListView.builder(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        scrollDirection: Axis.horizontal,
+        itemCount: dataList.length,
+        itemBuilder: (context, index) {
+          var productModel = dataList[index];
+          bool lastIndex = index == dataList.length -1;
+        return Container(
+          width: 150,
+          margin: EdgeInsets.only(right: lastIndex ? 0 : 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+            Image.asset(productModel.image, height: 150,width: double.infinity,),
+            SizedBox(height: 4),
+            Text(productModel.name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),),
+              Text("${productModel.price}원"),
+              Text("${productModel.reviewRating}(${productModel.reviewCount})"
+                ,),
 
-        ],),
-      );
-    },);
+          ],),
+        );
+      },),
+    );
   }
 
 

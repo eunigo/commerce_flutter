@@ -13,5 +13,10 @@ class ProductModel {
       this.reviewCount,
       this.reviewRating,
       this.cart,
-      )
+      );
+
+  @override
+  String toString() {
+    return 'ProductModel{image: $image, name: $name, price: $price, reviewCount: $reviewCount, reviewRating: $reviewRating, cart: $cart}';
+  }
 }

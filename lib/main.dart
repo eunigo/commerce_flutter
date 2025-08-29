@@ -1,5 +1,5 @@
 import 'package:commerce_20250828/screen/main/main_screen.dart';
-import 'package:commerce_20250828/util/cusotm_scroll_behaviot.dart';
+import 'package:commerce_20250828/util/cusotm_scroll_behavior.dart';
 import 'package:flutter/material.dart';
 
 void main() {
